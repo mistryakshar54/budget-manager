@@ -34,28 +34,17 @@ const TableComponent = ( props ) => {
                     {
                         Object.keys(item).map( (itemKey , itemKeyIndex) =>{
                         // ind++;
-                        return(
-                             <td key={index+'_'+itemKeyIndex}>
-                                  {item[itemKey]} 
-                             </td>
-                        )
+                        if(itemKey !== 'id') { 
+
+                            return(
+                                 <td key={index+'_'+itemKeyIndex}>
+                                      {item[itemKey]} 
+                                 </td>
+                            )
+                        }
                         })
 
                     }
-                    {/* <td>
-                        {
-                            tableConfig.actions.map( (actionItem, actionIndex) => {
-                                debugger
-                                let actionName = actionItem.click;
-                                return(
-                                        <button key={actionIndex} onClick={   ()=>tableConfig['actions'][0]['click']( item,index ) } className="btn btn-primary">{actionItem.name}</button>
-                                    
-                                );
-                            } )
-                            
-                        }
-                    </td> */}
-                    
                 </tr>    
             );
        

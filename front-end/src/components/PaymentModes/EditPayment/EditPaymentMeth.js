@@ -18,6 +18,10 @@ let EditPaymentMeth = (props) => {
 
     const onFormSubmitHandler = ( formValues ) => {
         console.log(formValues);
+        props.onSavePaymentModeHandler(formValues);
+        console.log(props.history);
+        props.history.push('../view');
+
     }
 
     if(props.requestState)
@@ -54,7 +58,8 @@ const mapStateToProps = ( state) => {
 
 const mapDispatchToProps = ( dispatch ) => {
     return{
-        onLoadDataHandler : (idToFetch) => dispatch( PaymentActions.loadPaymentData(idToFetch) )
+        onLoadDataHandler : (idToFetch) => dispatch( PaymentActions.loadPaymentData(idToFetch) ),
+        onSavePaymentModeHandler : ( updatedPaymentMode ) => dispatch( PaymentActions.editPaymentModeDetail( updatedPaymentMode ) )
     }
 }
 

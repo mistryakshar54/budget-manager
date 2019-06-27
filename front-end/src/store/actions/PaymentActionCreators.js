@@ -34,6 +34,14 @@ export const addPaymentMethod = ( paymentMethod ) => {
     }
 }
 
+export const editPaymentMethod = ( paymentMethod, itemIndex ) => {
+    return{
+        type : 'EDIT_PAYMENT_METHOD',
+        payload : paymentMethod,
+        payloadIndex : itemIndex
+    }
+}
+
 export const requestNewPaymentMethod = ( paymentMethod ) => {
     return dispatch => {
         dispatch( inRequestPaymentAction() );
@@ -55,6 +63,12 @@ export const errorProcessingPayment = () => {
     }
 }
 
+export const clearSelectedPaymentDetail = () => {
+    return {
+        type : 'CLEAR_SELECTED_PAYMENT_DETAIL'
+    }
+}
+
 export const fetchPaymentModeDetailAC = ( paymentModeId ) => {
     return (dispatch,getState) => {
         debugger;
@@ -70,6 +84,7 @@ export const fetchPaymentModeDetailAC = ( paymentModeId ) => {
         {
             dispatch(fetchPaymentModeDetail( paymentModeState.paymentModeArr[matchIndex] ));
             dispatch( successPaymentAction() );
+            
         }
         else
         {
@@ -83,6 +98,38 @@ export const fetchPaymentModeDetailAC = ( paymentModeId ) => {
      
     }
 }
+
+export const editPaymentModeDetail = ( paymentModeData ) => {
+    return(dispatch , getState) => {
+        debugger;
+        dispatch( inRequestPaymentAction() );
+        let matchIndex = -1;
+        let paymentModeState = Object.assign({} , getState().PaymentReducer);
+        paymentModeState.paymentModeArr.forEach( (item , index) => {
+            if(item.id === paymentModeData.id)
+            {
+                matchIndex = index;
+            }
+        });
+        if(matchIndex > -1)
+        {
+            dispatch( editPaymentMethod( paymentModeData , matchIndex ) );
+            dispatch( successPaymentAction() );
+            dispatch(clearSelectedPaymentDetail());
+        }
+        else
+        {
+            dispatch( errorProcessingPayment() );
+            dispatch(clearSelectedPaymentDetail());
+            dispatch( errorPaymentAction( {
+                message : 'No such record!',
+                status : 500,
+                apiInProcess : false
+            }));
+        }
+    }
+}
+
 
 export const loadPaymentData = ( paymentModeId ) => {
     return dispatch => {

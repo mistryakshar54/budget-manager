@@ -14,28 +14,14 @@ const PaymentReducer  = ( state = initialState.paymentData , action ) => {
         }
         case 'EDIT_PAYMENT_METHOD' : {
 
-            let paymentDataArr = Object.assign([] , state.paymentData);
-            let matchIndex = -1;
-            paymentDataArr.forEach( (item , index) => {
-                if(item.id === action.payload.id)
-                {
-                    matchIndex = index;
-                }
-            });
-            if(matchIndex > -1)
-            {
-                paymentDataArr[matchIndex] = action.payload;
+            let paymentDataArr = Object.assign([] , state.paymentModeArr);
+            
+                paymentDataArr[action.payloadIndex] = action.payload;
                 return{
                     ...state,
-                    paymentData : paymentDataArr
+                    paymentModeArr : paymentDataArr
                 }
-            }
-            else
-            {
-                return{
-                   ...state
-                }
-            }
+           
         }
         case 'DELETE_PAYMENT_METHOD' : {
 
@@ -109,6 +95,13 @@ const PaymentReducer  = ( state = initialState.paymentData , action ) => {
                 }
             }
         }
+        case 'CLEAR_SELECTED_PAYMENT_DETAIL' : {
+            return{
+                ...state,
+                selectedPaymentDetail : {}
+            }
+        }
+
         default : {
             return {
                 ...state
