@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { LinkContainer } from "react-router-bootstrap";
+import Card from 'react-bootstrap/Card';
 
 class AppContent extends Component{
 
@@ -31,7 +32,11 @@ class AppContent extends Component{
               </Nav>
                 </div>
                 <div className="routing-content"> 
-                    <Route path="/payment-mode" component={PaymentContainer} />
+                  <Card className="col-lg-11 col-xs-12 col-sm-12">
+                    <Card.Body>
+                        <Route path="/payment-mode" component={PaymentContainer} />
+                    </Card.Body>
+                  </Card>
                 </div>
             </div>
         );
