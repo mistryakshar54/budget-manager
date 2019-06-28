@@ -1,15 +1,11 @@
 import React from 'react';
-import Table from 'react-bootstrap/Table'
-
-const onClickHander = (item,index) => {
-    // debugger;
-    console.log(item);
-}
+import Table from 'react-bootstrap/Table';
+import './Table.scss';
 
 
 const TableComponent = ( props ) => {
     // debugger
-    const { tableConfig , tableData , tableRows } = props.tableComponentData;
+    const { tableData , tableRows} = props.tableComponentData;
 
     let theads = tableRows.map( (item,index)=>{
         return(
@@ -22,12 +18,23 @@ const TableComponent = ( props ) => {
 
     let tdata = tableData.map( (item,index)=>{
 
-            let actionsTr = <td>
-
-            </td>;
-            if( tableConfig.actions.length > 0 )
-            {
-
+        
+        
+            let editBtn = null , deleteBtn = null , actions = null;
+            if( props.isReadOnly === false )
+            {   
+                if( props.editRecordCallback )
+                {
+                    editBtn = <button className="btn btn-warning" onClick={ ()=>props.editRecordCallback(item,index) }> Edit </button>
+                }
+                if( props.deleteRecordCallback )
+                {
+                    deleteBtn = <button className="btn btn-danger" onClick={ ()=>props.deleteRecordCallback(item,index) }> Delete </button>
+                }
+                actions = <td>
+                    {editBtn}
+                    {deleteBtn}
+                </td>
             }
             return(
                 <tr key={index}>
@@ -37,14 +44,15 @@ const TableComponent = ( props ) => {
                         if(itemKey !== 'id') { 
 
                             return(
-                                 <td key={index+'_'+itemKeyIndex}>
+                                 <td className="table-data" key={index+'_'+itemKeyIndex}>
                                       {item[itemKey]} 
                                  </td>
                             )
                         }
                         })
-
+                        
                     }
+                    {actions}
                 </tr>    
             );
        
@@ -65,7 +73,7 @@ const TableComponent = ( props ) => {
     }
     else
     {
-        return <h1>Nothing to show here</h1>
+        return <h1 className="content-header">Nothing to show here</h1>
     }
 
 
