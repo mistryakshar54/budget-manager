@@ -1,9 +1,8 @@
 import React, { useState , useEffect } from 'react';
 import {connect} from 'react-redux';
-import { Field, reduxForm } from 'redux-form'
-import Form from 'react-bootstrap/Form'
 import * as PaymentActions from '../../../store/actions/PaymentActionCreators';
 import EditPaymentFrom from './EditPaymentForm';
+import Spinner from 'react-bootstrap/Spinner'
 
 let EditPaymentMeth = (props) => {
     useEffect( () => {
@@ -17,9 +16,7 @@ let EditPaymentMeth = (props) => {
 
 
     const onFormSubmitHandler = ( formValues ) => {
-        console.log(formValues);
         props.onSavePaymentModeHandler(formValues);
-        console.log(props.history);
         props.history.push('../view');
 
     }
@@ -28,20 +25,24 @@ let EditPaymentMeth = (props) => {
     {
         if(props.requestState.apiInProcess === true)
         {
-            return(<h1>Loading</h1>);
+            return(<Spinner animation="grow" />);
         }
         else
         {
-            debugger;
             if( props.requestState.status === 200 && props.initialValues.id === parseInt(props.match.params.paymentModeId) )
             {
-               return( 
-                   <EditPaymentFrom onSubmit={onFormSubmitHandler} initialValues={props.initialValues} />
+               return(
+                   <div>
+                       <div className="h5">Edit Payment Mode</div>
+                       <EditPaymentFrom onSubmit={onFormSubmitHandler} initialValues={props.initialValues} />
+                   </div> 
+                    
                );
             }
             else
             {
-                return(<h1>No data fetched!!</h1>);
+                return(<Spinner animation="grow" />);
+                // return(<h1>No data fetched!!</h1>);
             }
            
         }

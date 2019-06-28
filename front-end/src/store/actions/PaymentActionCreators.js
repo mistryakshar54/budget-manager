@@ -42,6 +42,13 @@ export const editPaymentMethod = ( paymentMethod, itemIndex ) => {
     }
 }
 
+export const deletePaymentMethod = ( itemIndex ) => {
+    return{
+        type : 'DELETE_PAYMENT_METHOD',
+        payload : itemIndex
+    }
+}
+
 export const requestNewPaymentMethod = ( paymentMethod ) => {
     return dispatch => {
         dispatch( inRequestPaymentAction() );
@@ -130,6 +137,36 @@ export const editPaymentModeDetail = ( paymentModeData ) => {
     }
 }
 
+export const deletePaymentModeDetail = ( paymentMode , recordIndex ) => {
+    debugger;
+    return( dispatch , getState ) => {
+        dispatch( inRequestPaymentAction() );
+        let matchIndex = -1;
+        let paymentModeState = Object.assign({} , getState().PaymentReducer);
+        paymentModeState.paymentModeArr.forEach( (item , index) => {
+            if(item.id === paymentMode.id)
+            {
+                matchIndex = index;
+            }
+        });
+        if(matchIndex > -1)
+        {
+            dispatch( deletePaymentMethod( matchIndex ) );
+            dispatch( successPaymentAction() );
+            dispatch(clearSelectedPaymentDetail());
+        }
+        else
+        {
+            dispatch( errorProcessingPayment() );
+            dispatch(clearSelectedPaymentDetail());
+            dispatch( errorPaymentAction( {
+                message : 'No such record!',
+                status : 500,
+                apiInProcess : false
+            }));
+        }
+    }
+}
 
 export const loadPaymentData = ( paymentModeId ) => {
     return dispatch => {

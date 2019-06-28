@@ -32,17 +32,13 @@ class AddNewPayment extends Component{
     render(){
         return(
             <div>
-                <Card className="col-lg-10 col-xs-12 col-sm-12">
-                <Card.Body>
-                    <Card.Title>Add New Payment Mode</Card.Title>
+                    <div className="h5">Add New Payment Mode</div>
                     <AddPaymentForm onSubmit={this.onFormSubmitHandler}/>
-                </Card.Body>
-                </Card>
-                <ToastComponent  
-                    showToast={this.state.toggleToast} 
-                    closeToastHandler={this.toastToggleHandler}
-                    showMessage="New Payment Mode Added!"
-                    />
+                    <ToastComponent  
+                        showToast={this.state.toggleToast} 
+                        closeToastHandler={this.toastToggleHandler}
+                        showMessage="New Payment Mode Added!"
+                        />
             </div>
            
         );

@@ -25,20 +25,14 @@ const PaymentReducer  = ( state = initialState.paymentData , action ) => {
         }
         case 'DELETE_PAYMENT_METHOD' : {
 
-            let paymentData = Object.assign([] , state);
-            let matchIndex = -1;
-            paymentData.paymentModeArr.forEach( (item , index) => {
-                if(item.id === action.payload.id)
-                {
-                    matchIndex = index;
-                }
-            });
-            if(matchIndex > -1)
+            
+            if( action.payload > -1)
             {
-                paymentData.paymentModeArr.splice(matchIndex , 1);
+                let paymentDataArr = Object.assign([] , state.paymentModeArr);
+                paymentDataArr.splice(action.payload , 1);
                 return{
                     ...state,
-                    paymentModeArr : paymentData.paymentModeArr
+                    paymentModeArr : paymentDataArr
                 }
             }
             else
