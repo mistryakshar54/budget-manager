@@ -1,6 +1,9 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
 import './Table.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import Tooltip from 'react-bootstrap/Tooltip'
 
 
 const TableComponent = ( props ) => {
@@ -25,11 +28,13 @@ const TableComponent = ( props ) => {
             {   
                 if( props.editRecordCallback )
                 {
-                    editBtn = <button className="btn btn-warning" onClick={ ()=>props.editRecordCallback(item,index) }> Edit </button>
+                    editBtn = <FontAwesomeIcon className="icon-margin bm-icon" icon={faEdit} onClick={ ()=>props.editRecordCallback(item,index) }/>
+                    // <button className="btn btn-warning" > Edit </button>
                 }
                 if( props.deleteRecordCallback )
                 {
-                    deleteBtn = <button className="btn btn-danger" onClick={ ()=>props.deleteRecordCallback(item,index) }> Delete </button>
+                    deleteBtn = <FontAwesomeIcon className="icon-margin bm-icon"  icon={faTrash} onClick={ ()=>props.deleteRecordCallback(item,index) }/>
+                    // <button className="btn btn-danger" onClick={ ()=>props.deleteRecordCallback(item,index) }> Delete </button>
                 }
                 actions = <td>
                     {editBtn}
