@@ -46,8 +46,8 @@ class ViewPaymentMeth extends Component{
                             tableComponentData.tableData = this.props.paymentDataArr.paymentModeArr;
                             return(
                                 <div>
-                                    <NavLink className="btn btn-primary" to={`add`}>Add</NavLink>
-                                    <NavLink className="btn btn-info" to={`edit/0`}>Edit</NavLink>
+                                    {/* <NavLink className="btn btn-primary" to={`add`}>Add</NavLink>
+                                    <NavLink className="btn btn-info" to={`edit/0`}>Edit</NavLink> */}
                                         <TableComponent tableComponentData={tableComponentData} 
                                          isReadOnly={false}
                                          editRecordCallback = { this.editRecordHandler }
@@ -60,9 +60,8 @@ class ViewPaymentMeth extends Component{
                 {
                     return(
                             <div>
-                                <h1>No payment modes defined</h1>
-                                <NavLink className="btn btn-primary" to={`add`}>Add</NavLink>
-                                <NavLink className="btn btn-info" to={`edit/0`}>Edit</NavLink>
+                                <h1 className="gray-header">No payment modes defined</h1>
+                                {/* <NavLink className="btn btn-danger" to={`add`}>Add</NavLink> */}
                             </div>
                         );
                 }
