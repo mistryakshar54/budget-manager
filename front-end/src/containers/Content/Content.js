@@ -17,7 +17,7 @@ class AppContent extends Component{
             <div className="container-fluid main-content">
                 <div className="side-nav">
                 <Nav className="mr-auto">
-                <LinkContainer to="/payment-category">
+                <LinkContainer to="/payment-category/view">
                     <Nav.Link >Payment Categories</Nav.Link>
                   </LinkContainer >
                 <LinkContainer to="/payment-mode/view">

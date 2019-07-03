@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
+import ViewPaymentCat from '../../../components/PaymentCategories/ViewPaymentCat/ViewPaymentCat';
+import EditPaymentCat from '../../../components/PaymentCategories/EditPaymentCat/EditPaymentCat';
+import AddPaymentCat from '../../../components/PaymentCategories/AddPaymentCat/AddPaymentCat';
 
-
+import AddNewPayment from '../../../components/PaymentModes/AddPayment/AddPaymentMeth';
+import ViewPaymentMeth from '../../../components/PaymentModes/ViewPayment/ViewPaymentMeth';
+import EditPaymentMeth from '../../../components/PaymentModes/EditPayment/EditPaymentMeth';
 import {Route} from 'react-router-dom';
 class PaymentCategoryContainer extends Component{
 
@@ -23,9 +28,11 @@ class PaymentCategoryContainer extends Component{
                             {actionButton}
                         </div>
                     </div>
-                    <Route path={`${this.props.match.path}/view`} exact  />
-                    <Route path={`${this.props.match.path}/edit/:categoryId`} exact  />
-                    <Route path={`${this.props.match.path}/add`} exact />
+                    <Route path={`${this.props.match.path}/view`} exact  component={ViewPaymentCat} />
+                    {/* <Route path={`${this.props.match.path}/edit/:categoryId`} exact component={EditPaymentCat}  />
+                    <Route path={`${this.props.match.path}/add`} exact component={AddPaymentCat} /> */}
+
+                   
                 
             </div>
         );

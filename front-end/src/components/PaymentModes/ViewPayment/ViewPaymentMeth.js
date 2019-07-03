@@ -80,7 +80,6 @@ const mapStateToProps = (state) => {
     return {
         paymentDataArr : state.PaymentReducer,
         requestState : state.ApiReducer,
-
     }
 }
 
