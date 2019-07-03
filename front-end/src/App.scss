@@ -45,6 +45,35 @@ body
     font-weight: bold;
     font-size: 1.5rem;
   }
+
+  .bm-icon
+  {
+    cursor: pointer;
+  }
+  .bm-icon:hover
+  {
+    color: #e74831!important;
+  }
+  .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle
+  {
+    background-color: #e74831;
+    border-color: #e74831;
+  }
+  .btn-primary.focus, .btn-primary:focus
+  {
+    box-shadow: 0 0 0 0.2rem #e74831bf;
+  }
+  .btn-primary
+  {
+    background-color: #e74831;
+    border-color: #e74831;
+    border-radius: 4px;
+  }
+  .btn-primary:hover
+  {
+    background-color: #d23c26;
+    border-color: #d23c26;
+  }
 }
 
 .trim-margin
@@ -57,4 +86,9 @@ body
 {
   padding-left: 0px !important;
   padding-right: 0px !important;
+}
+
+.full-width
+{
+  width: 100%;
 }

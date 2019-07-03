@@ -8,6 +8,14 @@
     width:100%;
     padding: 1.5% 1.5%;
 }
+
+.gray-header
+{
+    font-size: 1.2rem;
+    color: #6f6f6f;
+    font-weight: 500;
+}
+
 .side-nav
 {
     display: block;
@@ -27,6 +35,8 @@
         transition: ease-in 0.2s;
         position: relative;
         color: black;
+        font-size: 1.1rem;
+    
     }
     a:hover{
         color: #e74832;

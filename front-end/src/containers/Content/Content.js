@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Content.scss';
 import PaymentContainer from '../Pages/PaymentMode/PaymentContainer';
+import PaymentCategoryContainer from '../Pages/PaymentCategory/PaymentCategoryContainer';
+
 import { Route, Link } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
@@ -15,7 +17,7 @@ class AppContent extends Component{
             <div className="container-fluid main-content">
                 <div className="side-nav">
                 <Nav className="mr-auto">
-                <LinkContainer to="/payment-cat">
+                <LinkContainer to="/payment-category">
                     <Nav.Link >Payment Categories</Nav.Link>
                   </LinkContainer >
                 <LinkContainer to="/payment-mode/view">
@@ -35,6 +37,7 @@ class AppContent extends Component{
                   <Card className="col-lg-11 col-xs-12 col-sm-12">
                     <Card.Body>
                         <Route path="/payment-mode" component={PaymentContainer} />
+                        <Route path="/payment-category" component={PaymentCategoryContainer} />
                     </Card.Body>
                   </Card>
                 </div>

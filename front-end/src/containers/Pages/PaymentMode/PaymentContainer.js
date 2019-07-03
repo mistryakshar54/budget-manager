@@ -9,33 +9,26 @@ import {Route} from 'react-router-dom';
 class PaymentContainer extends Component{
 
     render(){
-    //     let showBtn = null;
-    //    console.log("PRops => " , this.props);
-    //    console.log( this.props.location.pathname.indexOf('add')  );
+        let actionButton = null;
+        if(this.props.location.pathname.indexOf('view') > -1)
+        {
+        actionButton = <div>
+                            <NavLink className="btn btn-primary" to={`add`}>Add Payment Mode</NavLink>
+                           </div>
+        }
         return(
             <div>
-                    <div className="content-header card-title h5">
-                        Payment Modes
+                    <div className="d-flex d-flex justify-content-between" style={ {'margin':'1% 0%'} }>
+                        <div className="content-header card-title h5 ">
+                            Payment Modes
+                        </div>
+                        <div>
+                            {actionButton}
+                        </div>
                     </div>
-                    {/* <hr/> */}
                     <Route path={`${this.props.match.path}/view`} exact component={ViewPaymentMeth} />
                     <Route path={`${this.props.match.path}/edit/:paymentModeId`} exact component={EditPaymentMeth} />
                     <Route path={`${this.props.match.path}/add`} exact component={AddNewPayment} />
-                 {/* <div className="col-12">
-                    <div>
-                    <h3 className="content-header">
-                        Payment Mode
-                    </h3>        
-                    </div>
-                        
-                    <div>
-                        <NavLink className="btn btn-primary" to={`add`}>Add</NavLink>
-                    </div>
-                </div> */}
-                {/* <h3 className="content-header">
-                    Payment Mode
-                    
-                </h3> */}
                 
             </div>
         );
