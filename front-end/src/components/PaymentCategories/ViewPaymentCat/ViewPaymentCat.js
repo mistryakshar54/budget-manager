@@ -13,14 +13,12 @@ const ViewPaymentCat  = ( props ) => {
 
     const editRecordHandler = ( record , recordIndex ) => {
         //Handler to handle edit record coming from Generic Table
-        debugger;
-        this.props.history.push('edit/'+recordIndex);
+        props.history.push('edit/'+record.id);
     }
     
-    const deleteRecordHandler = ( record , recordIndex ) => {
+    const deleteRecordHandler = ( record, recordIndex ) => {
         //Handler to handle delete record coming from Generic Table
-        debugger;
-        this.props.onDeletePaymendMode( record, recordIndex );
+        props.onDeletePaymendCategoryHandler( record,recordIndex );
     }
 
     if(props.requestState)
@@ -76,7 +74,6 @@ const ViewPaymentCat  = ( props ) => {
 }
 
 const mapStateToProps = ( state ) => {
-    debugger;
     return {
         categoryData : state.CategoryReducer,
         requestState : state.ApiReducer
@@ -84,9 +81,9 @@ const mapStateToProps = ( state ) => {
 }
 
 const mapDispatchToProps = ( dispatch ) => {
-    debugger;
     return {
-        onLoadCategoryHandler : () => { dispatch(CategoryActionCreators.getAllPaymentCategories()) }
+        onLoadCategoryHandler : () => { dispatch(CategoryActionCreators.getAllPaymentCategories())},
+        onDeletePaymendCategoryHandler : ( record , recordIndex ) => { dispatch( CategoryActionCreators.dispatchDeletePaymentCategory( record,recordIndex ) ) }
     }
 }
 

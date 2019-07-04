@@ -51,10 +51,25 @@ export const getAllPaymentCategories = () => {
     }
 }
 
+export const getPaymentCatDetail = ( PaymentCategory ) => {
+    return {
+        type : 'GET_PAYMENT_CATEGORY_DETAIL',
+        payload : PaymentCategory
+    }
+}
+
 export const dispatchCreatePaymentCategory = ( paymentCat ) => {
     return (dispatch) => {
         dispatch( catInProcessRequestCallback() );
         dispatch( createPaymentCategory(paymentCat) );
+        dispatch( catSuccessRequestCallback());
+    }
+}
+
+export const dispatchDeletePaymentCategory = ( paymentCat , catIndex ) => {
+    return (dispatch) => {
+        dispatch( catInProcessRequestCallback() );
+        dispatch( deletePaymentCategory(catIndex) );
         dispatch( catSuccessRequestCallback());
     }
 }
@@ -64,5 +79,67 @@ export const dispatchGetAllPaymentCategories = ( ) => {
         dispatch( catInProcessRequestCallback() );
         dispatch( getAllPaymentCategories() );
         dispatch( catSuccessRequestCallback());
+    }
+}
+
+export const dispatchGetCategoryDetail = ( PaymentCatId ) => {
+    return (dispatch , getState) => {
+        dispatch( catInProcessRequestCallback() );
+        
+        let matchIndex = -1;
+        let paymentCatArr = Object.assign([] , getState().CategoryReducer.categoryArr);
+        paymentCatArr.forEach( (item , index) => {
+            if(item.id === parseInt(PaymentCatId))
+            {
+                matchIndex = index;
+            }
+        });
+        if(matchIndex > -1)
+        {
+            dispatch( getPaymentCatDetail( paymentCatArr[ matchIndex ] ) );
+            dispatch( catSuccessRequestCallback());    
+        }
+        else
+        {
+            dispatch( catErrorRequestCallback({
+                message : 'No such record!',
+                status : 500,
+                apiInProcess : false
+            }) );
+           
+        }
+
+
+    }
+}
+
+export const dispatchSaveCategoryDetail = ( PaymentCatdata ) => {
+    return (dispatch , getState) => {
+        dispatch( catInProcessRequestCallback() );
+        
+        let matchIndex = -1;
+        let paymentCatArr = Object.assign([] , getState().CategoryReducer.categoryArr);
+        paymentCatArr.forEach( (item , index) => {
+            if(item.id === parseInt(PaymentCatdata.id))
+            {
+                matchIndex = index;
+            }
+        });
+        if(matchIndex > -1)
+        {
+            dispatch( savePaymentCategory( PaymentCatdata ,matchIndex ) );
+            dispatch( catSuccessRequestCallback());    
+        }
+        else
+        {
+            dispatch( catErrorRequestCallback({
+                message : 'No such record!',
+                status : 500,
+                apiInProcess : false
+            }) );
+           
+        }
+
+
     }
 }
