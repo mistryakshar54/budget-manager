@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import './Header.scss';
 import {NavLink} from 'react-router-dom';
 import { LinkContainer } from "react-router-bootstrap";
+import GoogleAuth from '../../components/Authorization/Google-auth/Google-auth';
 
 
 class AppHeader extends Component{
@@ -14,29 +15,35 @@ class AppHeader extends Component{
 
         return(
             <Navbar collapseOnSelect expand="lg"   >
-            <Navbar.Brand href="#home">Budget Manager</Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
+              <Navbar.Brand href="#home">Budget Manager</Navbar.Brand>
+              <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+              <Navbar.Toggle />
+              <Navbar.Collapse id="responsive-navbar-nav">
+              
+              {/* <GoogleAuth /> */}
+                
+                
               <Nav className="mr-auto">
 
-                {/* <LinkContainer to="/payment-cat">
-                    <Nav.Link >Payment Categories</Nav.Link>
-                  </LinkContainer > */}
-              </Nav>
-              <Nav >
-                <LinkContainer to="/payment-mode/view">
-                    <Nav.Link >Payment Modes</Nav.Link>
+                  {/* <LinkContainer to="/payment-cat">
+                      <Nav.Link >Payment Categories</Nav.Link>
+                    </LinkContainer > */}
+                </Nav>
+                <Nav >
+                <GoogleAuth />
+                  {/* <LinkContainer>
+                      <GoogleAuth />
                   </LinkContainer >
-                <NavDropdown title="Manage Income/Expense" id="collasible-nav-dropdown">
-                  <LinkContainer to="/payment-mode1">
-                      <NavDropdown.Item >Income</NavDropdown.Item>
-                  </LinkContainer >
-                  <LinkContainer to="/payment-mode2">
-                      <NavDropdown.Item >Expense action</NavDropdown.Item>
-                  </LinkContainer>
-                </NavDropdown>
-              </Nav>
-            </Navbar.Collapse>
+                  <NavDropdown title="Manage Income/Expense" id="collasible-nav-dropdown">
+                    <LinkContainer to="/payment-mode1">
+                        <NavDropdown.Item >Income</NavDropdown.Item>
+                    </LinkContainer >
+                    <LinkContainer to="/payment-mode2">
+                        <NavDropdown.Item >Expense action</NavDropdown.Item>
+                    </LinkContainer>
+                  </NavDropdown> */}
+                </Nav> 
+              </Navbar.Collapse>
           </Navbar>
 
         );

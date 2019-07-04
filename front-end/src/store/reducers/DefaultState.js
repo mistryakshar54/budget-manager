@@ -1,4 +1,8 @@
 export const initialState = {
+    auth : {
+        isSignedIn : null,
+        userId : null
+    },
     paymentData : {
         paymentModeArr : [],
         selectedPaymentDetail : {},
