@@ -1,7 +1,7 @@
 import React , {useState} from 'react';
 import {connect} from 'react-redux';
 import * as CateogryActionCreators from '../../../store/actions/CategoryActionCreators';
-import CategoryForm from '../common/CategoryForm';
+import CategoryForm from '../../common/CategoryForm';
 
 
 const AddPaymentCat = ( props ) => {

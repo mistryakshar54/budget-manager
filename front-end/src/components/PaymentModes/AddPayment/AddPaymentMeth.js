@@ -1,12 +1,8 @@
 import React, { Component} from 'react';
-import AddPaymentForm from './AddPaymentForm';
-
-import Card from 'react-bootstrap/Card';
-
 import {connect} from 'react-redux';
-
 import * as PaymentActions from '../../../store/actions/PaymentActionCreators';
 import ToastComponent from '../../UI/Toast/Toast';
+import PaymentForm from '../../common/PaymentForm';
 
 
 class AddNewPayment extends Component{
@@ -33,7 +29,7 @@ class AddNewPayment extends Component{
         return(
             <div>
                     <div className="h5">Add New Payment Mode</div>
-                    <AddPaymentForm onSubmit={this.onFormSubmitHandler}/>
+                    <PaymentForm onSubmit={this.onFormSubmitHandler} btnText="Add Payment"/>
                     <ToastComponent  
                         showToast={this.state.toggleToast} 
                         closeToastHandler={this.toastToggleHandler}
