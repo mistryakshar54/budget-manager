@@ -15,16 +15,16 @@ export const initialState = {
     expenseData : {},
     categoryData : {
         categoryArr : [ 
-            {
-                id: 123,
-                "category" : "Food",
-                "subcat" : "Lunch",
-            },
-            {
-                id: 124,
-                "category" : "Gift",
-                "subcat" : "Birth Day Gift",
-            }
+            // {
+            //     id: 123,
+            //     "category" : "Food",
+            //     "subcat" : "Lunch",
+            // },
+            // {
+            //     id: 124,
+            //     "category" : "Gift",
+            //     "subcat" : "Birth Day Gift",
+            // }
         ],
         selectedCategoryDetail : {},
         reqStatus : {

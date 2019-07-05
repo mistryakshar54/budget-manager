@@ -50,6 +50,23 @@
         background-color: transparent;
         transition: ease-in 0.2s;
     }
+    .collapse-nav-items
+    {
+        width: 100%;
+        cursor: pointer;
+        .item-label
+        {
+            display: flex;
+            cursor: pointer;
+        }
+        .icon-margin {
+            margin: 3% 4%;
+        }
+        .collapse-links
+        {
+            padding-left:5%; 
+        }
+    }
     // a:before {
     //     content: "";
     //     position: absolute;
