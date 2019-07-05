@@ -65,7 +65,7 @@ class GoogleAuth extends Component {
                         trigger="click"
                         placement="bottom"
                         overlay= {
-                            <Popover id="popover-basic">
+                            <Popover id="popover-basic" style={{backgroundColor:'#e7504c'}}>
                                     <Button
                                         variant="light"
                                         onClick= { () => this.auth.signOut()}>
@@ -74,7 +74,7 @@ class GoogleAuth extends Component {
                             </Popover>
                         }
                         >
-                        <div style={{display:'inline',cursor:'pointer',textTransform:'capitalize'}}>
+                        <div style={{display:'inline',cursor:'pointer',textTransform:'uppercase', fontSize:'20px'}}>
                             {this.state.userInfo.firstName}
                         
                             <img

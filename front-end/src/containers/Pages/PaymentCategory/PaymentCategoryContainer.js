@@ -13,7 +13,7 @@ class PaymentCategoryContainer extends Component{
         {
         actionButton = <div>
                             <NavLink className="btn btn-primary" to={`add`}>Add Categoey</NavLink>
-                           </div>
+                        </div>
         }
         return(
             <div>
