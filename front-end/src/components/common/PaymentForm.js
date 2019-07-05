@@ -32,14 +32,14 @@ const CategoryForm = ( props ) => {
       <Form onSubmit={handleSubmit}>
 
           <Field 
-            name="category" 
+            name="modetype" 
             component={formHandler} 
-            label="Category Name*" />
+            label="Mode Type*" />
         
           <Field 
-            name="subcat" 
+            name="modesubtype" 
             component={formHandler}
-            label="Sub Category*" />
+            label="Mode Sub Type*" />
 
           {!!btnText && <button className="btn btn-primary" type="submit">{btnText}</button>}
       </Form>
@@ -50,11 +50,11 @@ const CategoryForm = ( props ) => {
 
 const validate = formData => {
   let error = {};
-  if(!formData.category){
-      error.category = "please enter a category"
+  if(!formData.modetype){
+      error.modetype = "please enter a Mode Type"
   }
-  if(!formData.subcat){
-      error.subcat = "please enter a sub category"
+  if(!formData.modesubtype){
+      error.modesubtype = "please enter a Mode Sub Type"
   }
   return error;
 }
