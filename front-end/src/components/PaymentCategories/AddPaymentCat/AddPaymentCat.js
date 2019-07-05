@@ -1,8 +1,7 @@
 import React , {useState} from 'react';
 import {connect} from 'react-redux';
 import * as CateogryActionCreators from '../../../store/actions/CategoryActionCreators';
-import AddPaymentCatfForm from './AddPaymentCatForm';
-
+import CategoryForm from '../common/CategoryForm';
 
 
 const AddPaymentCat = ( props ) => {
@@ -16,7 +15,7 @@ const AddPaymentCat = ( props ) => {
          return(
                 <div>
                     <div className="h5">Add New Category</div>
-                    <AddPaymentCatfForm onSubmit={onFormSubmitHandler}/>
+                    <CategoryForm onSubmit={onFormSubmitHandler} btnText="Add Category"/>
                     {/* <ToastComponent  
                         showToast={this.state.toggleToast} 
                         closeToastHandler={this.toastToggleHandler}

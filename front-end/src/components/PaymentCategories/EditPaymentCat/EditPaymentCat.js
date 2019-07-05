@@ -1,9 +1,8 @@
 import React , {useEffect} from 'react';
 import { connect } from 'react-redux';
 import * as CategoryActionCreators from '../../../store/actions/CategoryActionCreators';
-import EditPaymentCatForm from './EditPaymentCatForm';
-
 import Spinner from 'react-bootstrap/Spinner'
+import CategoryForm from '../common/CategoryForm';
 
 const EditPaymentCat = ( props ) => {
 
@@ -36,7 +35,7 @@ const EditPaymentCat = ( props ) => {
                return(
                    <div>
                        <div className="h5">Edit Payment Category</div>
-                       <EditPaymentCatForm onSubmit={onFormSubmitHandler} initialValues={props.initialValues} />
+                       <CategoryForm onSubmit={onFormSubmitHandler} initialValues={props.initialValues} btnText="Update Category"/>
                    </div> 
                     
                );
