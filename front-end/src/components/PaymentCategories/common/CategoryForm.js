@@ -13,7 +13,7 @@ const formHandler = ({input, label, meta}) =>{
   return ( //meta comes from validate function
   <Form.Group controlId="exampleForm.ControlInput1">
       <Form.Label>{label}</Form.Label>
-      {getInput(meta, input)}
+      {getInput()}
       {errorMessage(meta)}
   </Form.Group>
 )}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Content.scss';
 import PaymentContainer from '../Pages/PaymentMode/PaymentContainer';
 import PaymentCategoryContainer from '../Pages/PaymentCategory/PaymentCategoryContainer';
-
+import IncomeContainer  from '../Pages/Income/IncomeContainer';    
 import { Route, Link,NavLink } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
@@ -27,9 +27,12 @@ class AppContent extends Component{
             <div className="container-fluid main-content">
                 <div className="side-nav">
                 <Nav className="mr-auto">
+                <LinkContainer to="/dashboard">
+                  <Nav.Link >Dashboard</Nav.Link>
+                </LinkContainer >
                 <LinkContainer to="/payment-category/view">
-                    <Nav.Link >Payment Categories</Nav.Link>
-                  </LinkContainer >
+                  <Nav.Link >Payment Categories</Nav.Link>
+                </LinkContainer >
                 <LinkContainer to="/payment-mode/view">
                     <Nav.Link >Payment Modes</Nav.Link>
                   </LinkContainer >
@@ -42,14 +45,14 @@ class AppContent extends Component{
                       </Nav.Link>
                       <Collapse className="collapse-links" in={this.state.expenseCollapseFlag}>
                           <div id="example-collapse-text">
-                          <LinkContainer to="/payment-category/view">
-                            <Nav.Link >
-                              Manage Expense
-                            </Nav.Link>
-                          </LinkContainer >
-                          <LinkContainer to="/payment-category/view">
+                          <LinkContainer to="/income/view">
                             <Nav.Link >
                               Manage Income
+                            </Nav.Link>
+                          </LinkContainer >
+                          <LinkContainer to="/expense/view">
+                            <Nav.Link >
+                              Manage Expense
                             </Nav.Link>
                           </LinkContainer >
                         </div>
@@ -72,6 +75,7 @@ class AppContent extends Component{
                     <Card.Body>
                         <Route path="/payment-mode" component={PaymentContainer} />
                         <Route path="/payment-category" component={PaymentCategoryContainer} />
+                        <Route path="/income" component={IncomeContainer} />
                     </Card.Body>
                   </Card>
                 </div>

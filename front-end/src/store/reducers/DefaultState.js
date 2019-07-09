@@ -11,7 +11,25 @@ export const initialState = {
             error : false
         }
     },
-    incomeData : {},
+    incomeData : {
+        incomeArr : [ 
+            // {
+            //     id: 123,
+            //     "category" : "Food",
+            //     "subcat" : "Lunch",
+            // },
+            // {
+            //     id: 124,
+            //     "category" : "Gift",
+            //     "subcat" : "Birth Day Gift",
+            // }
+        ],
+        selectedIncomeDetail : {},
+        reqStatus : {
+            message : '',
+            error : false
+        }
+    },
     expenseData : {},
     categoryData : {
         categoryArr : [ 
