@@ -3,10 +3,10 @@ import { Field, reduxForm } from 'redux-form';
 import Form from 'react-bootstrap/Form';
 
 const formHandler = ({input, label, meta}) =>{
-  // debugger;
+  debugger;
   const getInput = () => {
-    const {submitFailed, dirty, touched} = meta;
-    const style =  (submitFailed && !dirty)? {border:'1px solid red'} : null;
+    const {submitFailed, invalid} = meta;
+    const style =  (submitFailed && invalid)? {border:'1px solid red'} : null;
     return (<input className="form-control" style={style} {...input} autoComplete='off'/>);
   }
 

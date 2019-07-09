@@ -1,8 +1,8 @@
 import React , {useEffect} from 'react';
 import { connect } from 'react-redux';
 import * as CategoryActionCreators from '../../../store/actions/CategoryActionCreators';
-import Spinner from 'react-bootstrap/Spinner'
-import CategoryForm from '../common/CategoryForm';
+import Spinner from 'react-bootstrap/Spinner';
+import CategoryForm from '../../common/CategoryForm';
 
 const EditPaymentCat = ( props ) => {
 

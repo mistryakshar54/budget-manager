@@ -1,8 +1,8 @@
 import React, { useState , useEffect } from 'react';
 import {connect} from 'react-redux';
 import * as PaymentActions from '../../../store/actions/PaymentActionCreators';
-import EditPaymentFrom from './EditPaymentForm';
 import Spinner from 'react-bootstrap/Spinner'
+import PaymentForm from '../../common/PaymentForm';
 
 let EditPaymentMeth = (props) => {
     useEffect( () => {
@@ -34,7 +34,7 @@ let EditPaymentMeth = (props) => {
                return(
                    <div>
                        <div className="h5">Edit Payment Mode</div>
-                       <EditPaymentFrom onSubmit={onFormSubmitHandler} initialValues={props.initialValues} />
+                       <PaymentForm onSubmit={onFormSubmitHandler} initialValues={props.initialValues} btnText="Update Payment" />
                    </div> 
                     
                );
